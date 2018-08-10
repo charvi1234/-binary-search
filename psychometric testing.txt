@@ -1,0 +1,54 @@
+int comp2(const void *a,const void *b)
+{
+        return((*(int *)a)-(*(int*)b));    
+}
+int* jobOffers(int scores_size, int* scores, int lowerLimits_size, int* lowerLimits, int upperLimits_size, int* upperLimits, int* result_size) 
+{
+int i,j,l,r,mid,temp,k=0,num;
+    int *arr;
+    int *arr2;
+    int *arr3;
+    arr=(int*)malloc(sizeof(int)*lowerLimits_size);
+    arr2=(int*)malloc(sizeof(int)*lowerLimits_size);
+    arr3=(int*)malloc(sizeof(int)*lowerLimits_size);
+    qsort(scores,scores_size,sizeof(int),comp2);
+for(i=0;i<lowerLimits_size;i++)
+{
+l=0;
+r=scores_size;
+num=lowerLimits[i];
+    while(l<r)
+    {
+        mid=(l+r)/2;
+        if(scores[mid]>=num)
+            r=mid;
+        else
+            l=mid+1;
+    }
+    arr[k]=l;
+    k++;
+}
+    k=0;
+for(i=0;i<lowerLimits_size;i++)
+{
+l=0;
+r=scores_size;
+num=upperLimits[i];
+    while(l<r)
+    {
+        mid=(l+r)/2;
+        if(scores[mid]>num)
+            r=mid;
+        else
+            l=mid+1;
+    }
+    arr2[k]=l;
+    k++;
+}
+    for(i=0;i<k;i++)
+    {
+        arr3[i]=arr2[i]-arr[i];
+    }
+    *result_size=k;
+    return arr3;
+}
