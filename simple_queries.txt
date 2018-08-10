@@ -1,0 +1,29 @@
+int comp2(const void *a,const void *b)
+{
+        return((*(int *)a)-(*(int*)b));    
+}
+int* counts(int nums_count, int* nums, int maxes_count, int* maxes, int* result_count) 
+{
+int i,count=0,k=0,j,temp,l,r,num,mid;
+int *arr;
+arr=(int*)malloc(sizeof(int)*nums_count);    
+qsort(nums,nums_count,sizeof(int),comp2);    
+for(i=0;i<maxes_count;i++)
+{
+l=0;
+r=nums_count;
+num=maxes[i];
+    while(l<r)
+    {
+     mid=(l+r)/2;
+        if(nums[mid]>num)
+            r=mid;
+        else
+            l=mid+1;
+    }
+   arr[k]=l;
+    k++;
+}
+    *result_count=k;
+    return arr;
+}
