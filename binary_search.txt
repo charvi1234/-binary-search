@@ -1,0 +1,28 @@
+#include<stdio.h>
+void main()
+{
+int mid,arr[256],x,ub,lb,n,i,j;
+printf("enter size of array\n");
+scanf("%d",&n);
+for(i=0;i<n;i++)
+{
+scanf("%d",&arr[i]);
+}
+printf("enter the value to search\n");
+scanf("%d",&x);
+lb=0;
+ub=n-1;
+while(ub>=lb)
+{
+mid=(lb+ub)/2;
+if(arr[mid]==x)
+{
+printf("%d",mid);
+break;
+}
+else if(arr[mid]>x)
+ub=mid-1;
+else
+lb=mid+1;
+}
+}
