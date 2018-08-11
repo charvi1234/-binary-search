@@ -1,1 +1,4 @@
-This repo consists of codes of binary search i.e finding lower bound and upper bound along with some application of these concepts.
+This repository consists of codes of binary search:-
+1.searching an element 
+2.finding lower bound and upper bound of an element
+3.some queries using binary search.
