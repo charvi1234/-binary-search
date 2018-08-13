@@ -1,0 +1,51 @@
+/**
+ * @input A : Integer array
+ * @input n1 : Integer array's ( A ) length
+ * @input B : Integer
+ * 
+ * @Output Integer
+ */
+ int check(int *arr,int n,int b,int min)
+ {
+     int st=1;
+     int sum=0;
+     int i;
+     for(i=0;i<n;i++)
+     {
+         if(arr[i]>min)
+         return 0;
+         if(sum+arr[i]<=min)
+         {
+             sum=sum+arr[i];
+         }
+         else
+         {
+         st++;
+         sum=arr[i];
+         if(st>b)
+         return 0;
+         }
+     }
+     return 1;
+ }
+int books(int* A, int n1, int B) 
+{
+    if(n1<B)
+    return -1;
+int sum,i,l,r,mid;
+for(i=0;i<n1;i++)
+sum=sum+A[i];
+l=0;
+r=sum;
+while(l<=r)
+{
+    mid=(l+r)/2;
+    if(check(A,n1,B,mid))
+    {
+        r=mid-1;
+    }
+    else
+    l=mid+1;
+}
+return l;
+}
