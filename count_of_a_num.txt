@@ -1,0 +1,42 @@
+#include <stdio.h>
+/* Include other headers as needed */
+int main()
+{
+  int no;
+  scanf("%d",&no);
+  while(no!=0)
+  {
+  int n,num;
+  scanf("%d%d",&n,&num);
+  int i;
+  int arr[n];
+  for(i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+  int l,r,lb,ub,mid;
+  l=0;
+  r=n;
+  while(l<r)
+  {
+    mid=(l+r)/2;
+    if(arr[mid]>=num)
+      r=mid;
+    else
+      l=mid+1;
+  }
+  lb=l;
+  l=0;
+  r=n;
+  while(l<r)
+  {
+    mid=(l+r)/2;
+    if(arr[mid]<=num)
+      l=mid+1;
+    else
+      r=mid;
+  }
+  ub=l;
+  printf("%d\n",ub-lb);
+  no--;
+  }
+  return 0;
+}
