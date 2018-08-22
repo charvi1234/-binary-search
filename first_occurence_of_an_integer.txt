@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main()
+{
+  int no;
+  scanf("%d",&no);
+  while(no!=0)
+  {
+  int i,n,k;
+  scanf("%d%d",&n,&k);
+  int arr[n];
+  for(i=0;i<n;i++)
+  {
+    scanf("%d",&arr[i]);
+  }
+  int l=0,mid,flag=1;
+  int r=n;
+    while(l<r)
+    {
+        mid=(l+r)/2;
+        if(arr[mid]>=k)
+            r=mid;
+        else if(arr[mid]<k)
+        l=mid+1;
+    }
+    //if(k!=l)
+      //printf("-1\n");
+    //else
+      printf("%d\n",l);
+    no--;
+  }
+    return 0;
+}
