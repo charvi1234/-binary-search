@@ -1,0 +1,39 @@
+// Complete the numberOfPairs function below.
+// Complete the countPairs function below.
+int comp1(const void *a,const void *b)
+{
+    return *(int*)a-*(int*)b;
+}
+int numberOfPairs(int numbers_count, int* numbers, long k) 
+{
+    qsort(numbers,numbers_count,sizeof(int),comp1);
+    long l=0,r=numbers_count-1,pair=0;
+    long mid,i;
+    for(i=0;i<numbers_count;i++)
+    {
+        if(numbers[i]==numbers[i-1]&&i!=numbers_count-1&&i!=0)
+        {
+            l++;
+            continue;
+        }
+    while(l<r)
+    {
+        if(numbers[l]+numbers[r]==k)
+        {
+         pair=pair+1;
+         l++;
+         r--;
+         break;
+        }
+        else if(numbers[l]+numbers[r]>k)
+        {
+            r--;
+        }
+        else
+            l++;
+    }
+    }
+    return pair;
+    
+}
+
