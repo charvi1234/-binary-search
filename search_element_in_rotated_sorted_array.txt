@@ -21,7 +21,6 @@ int l,r,mid,pivot,flag=1;
     else if(a[mid]>=a[l])
       l=mid+1;
   }
-  //printf("%d ",pivot);
   if(target==a[pivot])
   {
     return pivot;
