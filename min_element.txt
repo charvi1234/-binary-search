@@ -1,5 +1,4 @@
 //https://www.interviewbit.com/problems/rotated-array/
-
 /**
  * @input A : Read only ( DON'T MODIFY ) Integer array
  * @input n1 : Integer array's ( A ) length
